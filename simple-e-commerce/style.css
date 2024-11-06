@@ -1,0 +1,409 @@
+body {
+  margin: 0px 20px;
+  font-family: monospace;
+  background-color: #000000;
+}
+
+body.light-mode {
+  background-color: #fafdff;
+}
+
+header {
+  background-color: #000000;
+  color: #fafdff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 20px;
+}
+
+header.light-mode {
+  background-color: #fafdff;
+  color: #000000;
+}
+
+.left-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  position: relative; /* Helps position the dropdown relative to its container */
+}
+
+.search-filter {
+  margin-inline: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+.search-bar {
+  margin-left: auto;
+  backdrop-filter: blur(1.5px) saturate(102%);
+  -webkit-backdrop-filter: blur(10px) saturate(102%);
+  background-color: rgba(50, 45, 45, 0.26);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  padding: 8px; /* Add some padding for aesthetics */
+}
+
+.search-bar input[type="text"] {
+  /* Remove default appearance */
+  border: none; /* Remove border */
+  outline: none; /* Remove outline on focus */
+  background: transparent; /* Make background transparent */
+  color: white; /* Set text color */
+  font-size: 16px; /* Set font size */
+  width: 100%; /* Full width */
+}
+
+.category-dropdown {
+  margin-left: auto;
+  position: relative; /* Helps position the dropdown relative to its container */
+  padding: 8px; /* Add some padding for aesthetics */
+}
+
+.category-dropdown select {
+  border: none; /* Remove default border */
+  background: transparent; /* Make background transparent */
+  color: rgb(138, 128, 128); /* Set text color */
+  font-size: 16px; /* Set font size */
+  padding: 8px 12px; /* Add some padding for better appearance */
+  width: 100%; /* Ensure it takes full width of the parent container */
+  border-radius: 12px; /* Round corners */
+  backdrop-filter: blur(1.5px) saturate(102%);
+  -webkit-backdrop-filter: blur(10px) saturate(102%);
+  background-color: rgba(
+    50,
+    45,
+    45,
+    0.26
+  ); /* Match the background of the input */
+  border: 1px solid rgba(255, 255, 255, 0.125); /* Border similar to input field */
+}
+
+/* Optional: Add styles for when the select dropdown is focused or active */
+.category-dropdown select:focus {
+  outline: none; /* Remove default outline on focus */
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.5); /* Optional focus effect */
+}
+
+/* Optional: Style for the dropdown arrow */
+.category-dropdown select::-ms-expand {
+  display: none; /* Hide the default arrow in Internet Explorer */
+}
+
+main {
+  background-color: #000000;
+  background-image: radial-gradient(#2a2a2a 2px, #000000 2px);
+  background-size: 80px 80px;
+}
+
+main.light-mode {
+  background-color: #fafdff;
+  background-image: radial-gradient(#2a2a2a 2px, #fafdff 2px);
+  background-size: 80px 80px;
+}
+
+img {
+  margin-top: 30px;
+  width: 150px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+#dollar {
+  font-weight: bold;
+  font-size: larger;
+  color: #b4bbd1;
+}
+
+.loader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 50px;
+  padding: 8px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #fbfbfb52;
+  --_m: conic-gradient(#0000 10%, #000), linear-gradient(#000 0 0) content-box;
+  -webkit-mask: var(--_m);
+  mask: var(--_m);
+  -webkit-mask-composite: source-out;
+  mask-composite: subtract;
+  animation: l3 1s infinite linear;
+}
+
+@keyframes l3 {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 16px;
+  padding: 16px;
+  justify-items: center;
+
+  .product-item {
+    position: relative;
+    backdrop-filter: blur(1.5px) saturate(102%);
+    -webkit-backdrop-filter: blur(10px) saturate(102%);
+    background-color: rgba(50, 45, 45, 0.26);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: rgb(197, 185, 185);
+    width: 400px;
+    height: auto;
+    padding: 23px 16px;
+    transition: 0.5s;
+    cursor: pointer;
+  }
+
+  .product-item.light-mode {
+    color: black;
+  }
+
+  .title {
+    font-weight: bold;
+    text-align: start;
+    font-size: larger;
+    color: rgb(221, 213, 213);
+  }
+
+  .title.light-mode {
+    color: rgb(0, 0, 0);
+  }
+
+  .bottom-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .price {
+    font-weight: 480;
+    font-size: 1rem;
+    color: rgb(243, 244, 243);
+    padding: 3px 4px;
+    border-radius: 4px;
+    background-color: rgb(59, 143, 83);
+    position: absolute; /* Add this */
+    bottom: 20px; /* Add this */
+    right: 20px; /* Add this */
+  }
+
+  .rating {
+    position: absolute; /* Add this */
+    bottom: 20px; /* Add this */
+    left: 20px; /* Add this */
+  }
+
+  .description {
+    margin-bottom: 30px;
+  }
+
+  / #toggle-mode {
+    background-color: #030303;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+
+  /* Light mode styles */
+  #toggle-mode.light-mode {
+    background-color: #fafdff;
+  }
+
+  /* Icon styling */
+  #toggle-mode i {
+    color: #ffffff; /* Icons color */
+    font-size: 24px;
+    display: none; /* Hide icons by default */
+  }
+
+  /* Show sun icon when light mode is active */
+  #toggle-mode.light-mode #sun-icon {
+    display: inline-block;
+  }
+
+  /* Show moon icon when dark mode is active */
+  #toggle-mode #moon-icon {
+    display: inline-block;
+  }
+
+  /* Hover effect for toggle button */
+  #toggle-mode:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+  }
+
+  .product-item:hover {
+    backdrop-filter: blur(2px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(124, 122, 122, 0.26);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+  }
+}
+
+/* slider */
+.wrapper {
+  position: relative;
+  width: 30%;
+  padding: 10px 10px 10px 10px;
+  border-radius: 10px;
+  margin-top: 12;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 2px;
+  backdrop-filter: blur(1.5px) saturate(102%);
+  -webkit-backdrop-filter: blur(10px) saturate(102%);
+  background-color: rgba(50, 45, 45, 0.26);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+}
+.container {
+  position: relative;
+  width: 100%;
+  height: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+input[type="range"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+  outline: none;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  background-color: transparent;
+  pointer-events: none;
+}
+.slider-track {
+  background-color: #b4bbd1;
+  width: 100%;
+  height: 2px;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  border-radius: 2px;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  height: 5px;
+}
+input[type="range"]::-moz-range-track {
+  -moz-appearance: none;
+  height: 5px;
+}
+input[type="range"]::-ms-track {
+  appearance: none;
+  height: 5px;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 1.1em;
+  width: 1.1em;
+  background-color: #3264fe;
+  cursor: pointer;
+  margin-top: -4px;
+  pointer-events: auto;
+  border-radius: 50%;
+}
+input[type="range"]::-moz-range-thumb {
+  -webkit-appearance: none;
+  height: 0.8em;
+  width: 0.8em;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: #3264fe;
+  pointer-events: auto;
+  border: none;
+}
+input[type="range"]::-ms-thumb {
+  appearance: none;
+  height: 1.1em;
+  width: 1.1em;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: #3264fe;
+  pointer-events: auto;
+}
+input[type="range"]:active::-webkit-slider-thumb {
+  background-color: #ffffff;
+  border: 1px solid #3264fe;
+}
+.values {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #3264fe;
+  width: 32%;
+  position: relative;
+  margin: auto;
+  margin-right: 10px;
+  padding: 5px 0;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 12px;
+  color: #ffffff;
+}
+.values:before {
+  content: "";
+  position: absolute;
+  height: 0;
+  width: 0;
+
+  margin: auto;
+  bottom: -14px;
+  left: 0;
+  right: 0;
+}
+
+.button-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+}
+
+.edit-button,
+.delete-button {
+  background-color: #444;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.edit-button:hover {
+  background-color: #ac7e29;
+}
+
+.delete-button:hover {
+  background-color: #f25a5a;
+}
