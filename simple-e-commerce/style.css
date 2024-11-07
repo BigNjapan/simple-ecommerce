@@ -1,0 +1,513 @@
+body {
+	margin: 0px 20px;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+		Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+	background-color: #000000;
+}
+
+body.light-mode {
+	background-color: #fafdff;
+}
+
+header {
+	background-color: #000000;
+	color: #fafdff;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 10px 30px;
+	padding-left: 8px;
+	padding-right: 16px;
+}
+
+header.light-mode {
+	background-color: #fafdff;
+	color: #000000;
+}
+
+.search-filter {
+	margin-inline: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: start;
+	padding-left: 16px;
+	padding-right: 12px;
+}
+
+.left-section {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-left: auto;
+	position: relative; /* Helps position the dropdown relative to its container */
+}
+
+.search-bar {
+	margin-left: auto;
+	backdrop-filter: blur(1.5px) saturate(102%);
+	-webkit-backdrop-filter: blur(10px) saturate(102%);
+	background-color: rgba(50, 45, 45, 0.26);
+	border-radius: 12px;
+	border: 1px solid rgba(255, 255, 255, 0.125);
+	padding: 8px;
+}
+
+.search-bar input[type="text"] {
+	/* Remove default appearance */
+	border: none; /* Remove border */
+	outline: none; /* Remove outline on focus */
+	background: transparent; /* Make background transparent */
+	color: white; /* Set text color */
+	font-size: 16px; /* Set font size */
+	width: 100%; /* Full width */
+}
+
+.category-dropdown {
+	margin-left: auto;
+	position: relative; /* Helps position the dropdown relative to its container */
+	padding: 8px; /* Add some padding for aesthetics */
+}
+
+.category-dropdown select {
+	border: none; /* Remove default border */
+	background: transparent; /* Make background transparent */
+	color: rgb(138, 128, 128); /* Set text color */
+	font-size: 16px; /* Set font size */
+	padding: 8px 12px; /* Add some padding for better appearance */
+	width: 100%; /* Ensure it takes full width of the parent container */
+	border-radius: 12px; /* Round corners */
+	backdrop-filter: blur(1.5px) saturate(102%);
+	-webkit-backdrop-filter: blur(10px) saturate(102%);
+	background-color: rgba(
+		50,
+		45,
+		45,
+		0.26
+	); /* Match the background of the input */
+	border: 1px solid rgba(255, 255, 255, 0.125); /* Border similar to input field */
+}
+
+/* Optional: Add styles for when the select dropdown is focused or active */
+.category-dropdown select:focus {
+	outline: none; /* Remove default outline on focus */
+	box-shadow: 0 0 5px rgba(255, 255, 255, 0.5); /* Optional focus effect */
+}
+
+/* Optional: Style for the dropdown arrow */
+.category-dropdown select::-ms-expand {
+	display: none; /* Hide the default arrow in Internet Explorer */
+}
+
+main {
+	background-color: #000000;
+	background-image: radial-gradient(#2a2a2a 2px, #000000 2px);
+	background-size: 80px 80px;
+}
+
+main.light-mode {
+	background-color: #fafdff;
+	background-image: radial-gradient(#2a2a2a 2px, #fafdff 2px);
+	background-size: 80px 80px;
+}
+
+img {
+	margin-top: 30px;
+	width: 150px;
+	height: auto;
+	margin-bottom: 10px;
+}
+
+#dollar {
+	font-weight: bold;
+	font-size: larger;
+	color: #b4bbd1;
+}
+
+.loader {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	width: 50px;
+	padding: 8px;
+	aspect-ratio: 1;
+	border-radius: 50%;
+	background: #fbfbfb52;
+	--_m: conic-gradient(#0000 10%, #000), linear-gradient(#000 0 0) content-box;
+	-webkit-mask: var(--_m);
+	mask: var(--_m);
+	-webkit-mask-composite: source-out;
+	mask-composite: subtract;
+	animation: l3 1s infinite linear;
+}
+
+@keyframes l3 {
+	to {
+		transform: rotate(1turn);
+	}
+}
+
+.products {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+	gap: 8px;
+	padding: 16px;
+	justify-items: center;
+
+	.product-item {
+		position: relative;
+		backdrop-filter: blur(1.5px) saturate(102%);
+		-webkit-backdrop-filter: blur(10px) saturate(102%);
+		background-color: rgba(50, 45, 45, 0.26);
+		border-radius: 12px;
+		border: 1px solid rgba(255, 255, 255, 0.125);
+		margin-bottom: 10px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		color: rgb(197, 185, 185);
+		width: 320px;
+		height: auto;
+		padding: 23px 16px;
+		transition: 0.5s;
+		cursor: pointer;
+	}
+
+	.product-item:hover {
+		backdrop-filter: blur(50%) saturate(102%);
+		-webkit-backdrop-filter: blur(50%) saturate(102%);
+		background-color: rgba(123, 113, 113, 0.26);
+		border-radius: 12px;
+		border: 1px solid rgba(255, 255, 255, 0.125);
+	}
+
+	.product-item.light-mode {
+		color: black;
+	}
+
+	.title {
+		font-weight: bold;
+		text-align: start;
+		font-size: larger;
+		color: rgb(221, 213, 213);
+	}
+
+	.title.light-mode {
+		color: rgb(0, 0, 0);
+	}
+
+	.bottom-info {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.price {
+		font-family: sans-serif;
+		font-weight: 490;
+		font-size: 1rem;
+		color: rgb(243, 244, 243);
+		padding: 2px 4px;
+		border-radius: 4px;
+		background-color: rgb(59, 143, 83);
+		position: absolute;
+		bottom: 20px;
+		right: 20px;
+	}
+
+	.rating {
+		position: absolute;
+		bottom: 20px;
+		left: 20px;
+	}
+
+	.details {
+		color: #dddada;
+	}
+
+	.description {
+		margin-bottom: 40px;
+		color: #a6a6a6;
+	}
+
+	.description.light-mode {
+		margin-bottom: 40px;
+		color: #4d4848;
+	}
+
+	.product-item:hover {
+		backdrop-filter: blur(2px) saturate(180%);
+		-webkit-backdrop-filter: blur(16px) saturate(180%);
+		background-color: rgba(124, 122, 122, 0.26);
+		border-radius: 12px;
+		border: 1px solid rgba(255, 255, 255, 0.125);
+	}
+}
+
+/* slider */
+.wrapper {
+	position: relative;
+	width: 30%;
+	padding: 10px 10px 10px 10px;
+	border-radius: 10px;
+	margin-top: 12;
+	margin-bottom: 12px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-right: 2px;
+	backdrop-filter: blur(1.5px) saturate(102%);
+	-webkit-backdrop-filter: blur(10px) saturate(102%);
+	background-color: rgba(50, 45, 45, 0.26);
+	border-radius: 12px;
+	border: 1px solid rgba(255, 255, 255, 0.125);
+}
+.container {
+	position: relative;
+	width: 100%;
+	height: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+input[type="range"] {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	width: 100%;
+	outline: none;
+	position: absolute;
+	margin: auto;
+	top: 0;
+	bottom: 0;
+	background-color: transparent;
+	pointer-events: none;
+}
+.slider-track {
+	background-color: #b4bbd1;
+	width: 100%;
+	height: 2px;
+	position: absolute;
+	margin: auto;
+	top: 0;
+	bottom: 0;
+	border-radius: 2px;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+	-webkit-appearance: none;
+	height: 5px;
+}
+input[type="range"]::-moz-range-track {
+	-moz-appearance: none;
+	height: 5px;
+}
+input[type="range"]::-ms-track {
+	appearance: none;
+	height: 5px;
+}
+input[type="range"]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	height: 1.1em;
+	width: 1.1em;
+	background-color: rgb(59, 143, 83);
+	cursor: pointer;
+	margin-top: -4px;
+	pointer-events: auto;
+	border-radius: 50%;
+}
+input[type="range"]::-moz-range-thumb {
+	-webkit-appearance: none;
+	height: 0.8em;
+	width: 0.8em;
+	cursor: pointer;
+	border-radius: 50%;
+	background-color: rgb(59, 143, 83);
+	pointer-events: auto;
+	border: none;
+}
+input[type="range"]::-ms-thumb {
+	appearance: none;
+	height: 1.1em;
+	width: 1.1em;
+	cursor: pointer;
+	border-radius: 50%;
+	background-color: rgb(59, 143, 83);
+	pointer-events: auto;
+}
+input[type="range"]:active::-webkit-slider-thumb {
+	background-color: #ffffff;
+	border: 1px solid rgb(59, 143, 83);
+}
+.values {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgb(59, 143, 83);
+	width: 32%;
+	position: relative;
+	margin: auto;
+	margin-right: 10px;
+	padding: 5px 0;
+	border-radius: 5px;
+	text-align: center;
+	font-weight: 500;
+	font-size: 13px;
+	color: #ffffff;
+}
+.values:before {
+	content: "";
+	position: absolute;
+	height: 0;
+	width: 0;
+
+	margin: auto;
+	bottom: -14px;
+	left: 0;
+	right: 0;
+}
+
+.button-container {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	display: flex;
+	gap: 8px;
+}
+
+.edit-button,
+.delete-button {
+	background-color: #444;
+	color: #fff;
+	border: none;
+	border-radius: 4px;
+	padding: 4px 8px;
+	cursor: pointer;
+	font-size: 0.9rem;
+}
+
+.edit-button:hover {
+	background-color: #ac7e29;
+}
+
+.delete-button:hover {
+	background-color: #f25a5a;
+}
+
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	backdrop-filter: blur(1.5px) saturate(102%);
+	-webkit-backdrop-filter: blur(10px) saturate(102%);
+	background-color: rgba(50, 45, 45, 0.26);
+	border-radius: 12px;
+	border: 1px solid rgba(255, 255, 255, 0.125);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1000;
+}
+
+.modal-content {
+	backdrop-filter: blur(23px) saturate(127%);
+	-webkit-backdrop-filter: blur(23px) saturate(127%);
+	background-color: rgba(91, 91, 97, 0.6);
+	border-radius: 12px;
+	border: 1px solid rgba(255, 255, 255, 0.125);
+	padding: 20px;
+	width: 400px;
+	height: auto;
+	text-align: center;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	color: #c4c4c4;
+}
+
+.modal-content h2 {
+	margin-top: 0;
+	color: #dbd9d9;
+}
+
+/* save edit */
+
+.save-edit {
+	background-color: #ac7e29;
+	color: #fff;
+	border: none;
+	border-radius: 4px;
+	padding: 4px 8px;
+	cursor: pointer;
+	font-size: 0.9rem;
+}
+
+.cancel-edit {
+	background-color: #f25a5a;
+	color: #fff;
+	border: none;
+	border-radius: 4px;
+	padding: 4px 8px;
+	cursor: pointer;
+	font-size: 0.9rem;
+}
+
+/* toggle dark */
+
+.toggle-switch {
+	position: relative;
+	width: 90px;
+	height: 30px;
+	--light: #d8dbe0;
+	--dark: #28292c;
+	--link: rgb(27, 129, 112);
+	--link-hover: rgb(24, 94, 82);
+}
+
+.toggle-switch-label {
+	position: absolute;
+	width: 100%;
+	height: 30px;
+	background-color: var(--dark);
+	border-radius: 25px;
+	cursor: pointer;
+	border: 3px solid var(--dark);
+}
+
+.toggle-checkbox {
+	position: absolute;
+	display: none;
+}
+
+.toggle-slider {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border-radius: 25px;
+	transition: 0.3s;
+}
+
+.toggle-checkbox:checked ~ .toggle-slider {
+	background-color: var(--light);
+}
+
+.toggle-slider::before {
+	content: "";
+	position: absolute;
+	top: 2.2px; /* Adjusted to center the circle */
+	left: 8px;
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	box-shadow: inset 12px -4px 0px 0px var(--light);
+	background-color: var(--dark);
+	transition: 0.3s;
+}
+
+.toggle-checkbox:checked ~ .toggle-slider::before {
+	transform: translateX(50px);
+	background-color: var(--dark);
+	box-shadow: none;
+}

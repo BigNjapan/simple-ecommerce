@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Loader</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Products</h1>
+      <div class="toggle-switch">
+        <label class="toggle-switch-label">
+          <input type="checkbox" class="toggle-checkbox" id="toggle-mode">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>  
+    </header>
+    <div class="search-filter">
+      <div class="wrapper">
+        <div class="values">
+          <span id="range1"> 0 </span>
+          <span> &dash; </span>
+          <span id="range2"> 1000 </span>
+          <span id="dollar">$</span>
+        </div>
+        <div class="container">
+          <div class="slider-track"></div>
+          <input
+            type="range"
+            min="0"
+            max="1000"
+            value="30"
+            id="slider-1"
+            oninput="slideOne()"
+          />
+          <input
+            type="range"
+            min="0"
+            max="1000"
+            value="70"
+            id="slider-2"
+            oninput="slideTwo()"
+          />
+        </div>
+      </div>
+      <div class="left-section">
+      <div class="search-bar">
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Search products..."
+          oninput="filterBySearch()"
+        />
+      </div>
+  
+
+      <div class="category-dropdown">
+        <select id="category-select" onchange="filterByCategory()">
+          <option value="all">All Categories</option>
+        </select>
+      </div>
+      
+    </div>
+  </div>
+    </div>
+    <main>
+      <div class="loader-container">
+        <div class="loader" id="loader"></div>
+      </div>
+      <div id="products-container" class="products"></div>
+    </main>
+  </body>
+</html>
